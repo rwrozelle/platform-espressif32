@@ -321,7 +321,8 @@ def extract_defines(compile_group):
     def _normalize_define(define_string):
         define_string = define_string.strip()
         if "=" in define_string:
-            define, value = define_string.split("=", maxsplit=1)
+            define, value = define_string.split("=", maxsplit=1)            
+            value = value.strip()
             if any(char in value for char in (' ', '<', '>')):
                 value = f'"{value}"'
             elif '"' in value and not value.startswith("\\"):
